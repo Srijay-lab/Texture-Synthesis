@@ -46,8 +46,4 @@ def load_image2(path, height=None, width=None):
 def render_img(session, x, save=False, out_path=None):
     shape = x.get_shape().as_list()
     img = np.clip(session.run(x), 0, 1)
-
-    if save:
-        toimage(np.reshape(img, shape[1:])).save(out_path)
-    else:
-        toimage(np.reshape(img, shape[1:])).show()
+    return np.reshape(img, shape[1:])
